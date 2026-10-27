@@ -3,7 +3,6 @@ import java.util.Arrays;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.function.Consumer;
 class Student {
     //Завдання 2
     private String name;
@@ -121,11 +120,11 @@ public class Main{
             return false;
         };
         Student[] students = {
-                new Student("Іван", "УП-251", new int[]{90, 80, 75}),
-                new Student("Олег", "УП-251", new int[]{55, 95, 85}),
-                new Student("Дар'я", "УП-251", new int[]{60, 65, 70}),
+                new Student("Іваненко Іван", "УП-251", new int[]{90, 80, 75}),
+                new Student("Петренко Олег", "УП-251", new int[]{55, 95, 85}),
+                new Student("Сидоренко Дар'я", "УП-251", new int[]{60, 65, 70}),
         };
-        System.out.println("Cтуденти з заборгованостями" + Arrays.toString(filter(students, hasDebts)));
+        System.out.println("Студенти без заборгованостей: " + Arrays.toString(filter(students, hasDebts.negate())));
         //Завдання 3
         Predicate<Integer> isEvenNum = n -> n % 2 == 0;
         Predicate<Integer> isGreaterThanFive = n -> n > 5;
@@ -145,9 +144,9 @@ public class Main{
         System.out.println(Arrays.toString(powers));
         //Завдання 7
         String[] names = {"нуль", "один", "два", "три", "чотири", "п'ять", "шість", "сім", "вісім", "дев'ять" };
-        Function<Integer, String> digitToSttring = n -> names[n];
+        Function<Integer, String> digitToString = n -> names[n];
         int[] digits = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-        String[] words = stringify(digits, digitToSttring);
+        String[] words = stringify(digits, digitToString);
         System.out.println(Arrays.toString(words));
     }
 }
